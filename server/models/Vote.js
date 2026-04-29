@@ -1,0 +1,11 @@
+const mongoose = require("mongoose");
+
+const voteSchema = new mongoose.Schema({
+  user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  poll: { type: mongoose.Schema.Types.ObjectId, ref: "Poll" },
+  optionIndex: Number,
+});
+
+voteSchema.index({ user: 1, poll: 1 }, { unique: true });
+
+module.exports = mongoose.model("Vote", voteSchema);

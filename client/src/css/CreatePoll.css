@@ -1,0 +1,59 @@
+.create-container {
+  max-width: 500px;
+  margin: 60px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.create-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.create-container input {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 8px 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.create-container input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.create-container button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.create-container button:last-child {
+  background: #3b82f6;
+  color: white;
+}
+
+.create-container button:last-child:hover {
+  background: #2563eb;
+}
+
+.create-container button:first-of-type {
+  background: #10b981;
+  color: white;
+}
+
+.create-container button:first-of-type:hover {
+  background: #059669;
+}

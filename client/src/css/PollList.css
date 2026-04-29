@@ -1,0 +1,93 @@
+.poll-container {
+  max-width: 720px;
+  margin: 40px auto;
+  font-family: "Segoe UI", sans-serif;
+  padding: 15px;
+  background: #f6f7fb;
+}
+
+.poll-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.create-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.logout-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.poll-card {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.poll-header h3 {
+  margin: 0 0 12px 0;
+  color: #111827;
+}
+
+.poll-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f9fafb;
+}
+
+.option-text {
+  font-size: 14px;
+  color: #374151;
+}
+
+.votes {
+  margin-left: 6px;
+  color: #6b7280;
+}
+
+.vote-btn {
+  background: #3b82f6;
+  color: white;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.vote-btn:hover {
+  background: #2563eb;
+}
+
+.vote-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
