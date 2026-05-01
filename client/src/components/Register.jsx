@@ -5,6 +5,7 @@ import { request } from "../api";
 export default function Register() {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleRegister = async () => {
     if (!form.email.includes("@")) return alert("Invalid email");
@@ -16,21 +17,41 @@ export default function Register() {
   };
 
   return (
-    <div className="auth-container">
-      <h2>Register</h2>
+    <div className="auth-wrapper">
+      <div className="auth-card">
+        <h2>Register Now</h2>
+        <p className="subtitle">Welcome, please create your account</p>
 
-      <input
-        placeholder="Email"
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-      />
+        <label>Email</label>
+        <input
+          type="email"
+          placeholder="you@example.com"
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
 
-      <input
-        placeholder="Password"
-        type="password"
-        onChange={(e) => setForm({ ...form, password: e.target.value })}
-      />
+        <label>Password</label>
 
-      <button onClick={handleRegister}>Register</button>
+        <div className="password-wrapper">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Enter your password"
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
+          />
+
+          <span
+            className="toggle-eye"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? "🙈" : "👁️"}
+          </span>
+        </div>
+        <button onClick={handleRegister}>Register</button>
+
+        <p className="switch-text">
+          If you have an account?{" "}
+          <span onClick={() => navigate("/login")}>Login to your account</span>
+        </p>
+      </div>
     </div>
   );
 }

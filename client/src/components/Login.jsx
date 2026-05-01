@@ -6,7 +6,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
-
+  const [showPassword, setShowPassword] = useState(false);
   const handleLogin = async () => {
     if (!form.email.includes("@")) return alert("Invalid email");
     if (!form.password) return alert("Password required");
@@ -29,26 +29,45 @@ export default function Login() {
   };
 
   return (
-    <div className="auth-container">
-      <h2>Login</h2>
+    <div className="auth-wrapper">
+      <div className="auth-card">
+        <h2>Sign in</h2>
+        <p className="subtitle">Welcome back, please login to your account</p>
 
-      <input
-        placeholder="Enter email"
-        value={form.email}
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-      />
-      <input
-        placeholder="Enter password"
-        type="password"
-        value={form.password}
-        onChange={(e) => setForm({ ...form, password: e.target.value })}
-      />
-      <button onClick={handleLogin} disabled={loading}>
-        {loading ? "Logging in..." : "Login"}
-      </button>
-      <p onClick={() => navigate("/register")}>
-        Don't have an account? Register
-      </p>
+        <label>Email</label>
+        <input
+          type="email"
+          placeholder="you@example.com"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+
+        <label>Password</label>
+
+        <div className="password-wrapper">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Enter your password"
+            value={form.password}
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
+          />
+
+          <span
+            className="toggle-eye"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? "🙈" : "👁️"}
+          </span>
+        </div>
+        <button onClick={handleLogin} disabled={loading}>
+          {loading ? "Signing in..." : "Sign in"}
+        </button>
+
+        <p className="switch-text">
+          Don’t have an account?{" "}
+          <span onClick={() => navigate("/register")}>Create one</span>
+        </p>
+      </div>
     </div>
   );
 }

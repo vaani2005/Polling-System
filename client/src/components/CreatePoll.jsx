@@ -58,36 +58,38 @@ export default function CreatePoll() {
 
   return (
     <div className="create-container">
-      <h2>{id ? "Edit Poll" : "Create Poll"}</h2>
-      <input
-        value={question}
-        placeholder="Enter poll question"
-        onChange={(e) => setQuestion(e.target.value)}
-      />
-
-      {options.map((o, i) => (
+      <div className="create-box">
+        <h2>{id ? "Edit Poll" : "Create Poll"}</h2>
         <input
-          key={i}
-          value={o}
-          placeholder={`Option ${i + 1}`}
-          onChange={(e) => {
-            const copy = [...options];
-            copy[i] = e.target.value;
-            setOptions(copy);
-          }}
+          value={question}
+          placeholder="Enter poll question"
+          onChange={(e) => setQuestion(e.target.value)}
         />
-      ))}
 
-      <button
-        onClick={() => {
-          if (options[options.length - 1].trim() === "")
-            return alert("Fill current option first");
-          setOptions([...options, ""]);
-        }}
-      >
-        Add Option
-      </button>
-      <button onClick={submit}>{id ? "Update Poll" : "Create"}</button>
+        {options.map((o, i) => (
+          <input
+            key={i}
+            value={o}
+            placeholder={`Option ${i + 1}`}
+            onChange={(e) => {
+              const copy = [...options];
+              copy[i] = e.target.value;
+              setOptions(copy);
+            }}
+          />
+        ))}
+
+        <button
+          onClick={() => {
+            if (options[options.length - 1].trim() === "")
+              return alert("Fill current option first");
+            setOptions([...options, ""]);
+          }}
+        >
+          Add Option
+        </button>
+        <button onClick={submit}>{id ? "Update Poll" : "Create"}</button>
+      </div>
     </div>
   );
 }
