@@ -4,7 +4,7 @@ export const request = async (url, method = "GET", body) => {
   const token = getToken();
 
   const res = await fetch(
-    "https://polling-system-backend-v4n5.onrender.com" + url,
+    "https://polling-system-backend-v4n5.onrender.com/" + url,
     {
       method,
       headers: {
@@ -29,3 +29,6 @@ export const request = async (url, method = "GET", body) => {
   }
   return data;
 };
+// frontent live : https://polling-system-frontend-ro67.onrender.com
+// backend live : https://polling-system-backend-v4n5.onrender.com/
+// local host : http://localhost:5000
