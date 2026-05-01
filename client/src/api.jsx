@@ -12,5 +12,17 @@ export const request = async (url, method = "GET", body) => {
     body: body ? JSON.stringify(body) : null,
   });
 
-  return res.json();
+  const data = await res.json();
+  if (res.status === 401) {
+    localStorage.removeItem("token");
+
+    alert(
+      data.msg === "No token"
+        ? "Please login to continue"
+        : "Session expired. Please login again",
+    );
+    Navigate("/login");
+    return;
+  }
+  return data;
 };

@@ -15,7 +15,6 @@ export default function Login() {
 
     try {
       const data = await request("/auth/login", "POST", form);
-
       if (data.token) {
         localStorage.setItem("token", data.token);
         navigate("/polls");

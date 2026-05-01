@@ -10,12 +10,20 @@ import "./css/PollList.css";
 import "./css/CreatePoll.css";
 
 export default function App() {
-  const token = localStorage.getItem("token");
+  // const ProtectedRoute = ({ children }) => {
+  //   const token = localStorage.getItem("token");
+  //   return token ? children : <Navigate to="/login" />;
+  // };
 
   const ProtectedRoute = ({ children }) => {
-    return token ? children : <Navigate to="/login" />;
-  };
+    const token = localStorage.getItem("token");
 
+    if (!token) {
+      return <Navigate to="/login" />;
+    }
+
+    return children;
+  };
   return (
     <Routes>
       <Route path="/polls" element={<PollList />} />
@@ -24,6 +32,15 @@ export default function App() {
 
       <Route
         path="/create"
+        element={
+          <ProtectedRoute>
+            <CreatePoll />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/edit/:id"
         element={
           <ProtectedRoute>
             <CreatePoll />

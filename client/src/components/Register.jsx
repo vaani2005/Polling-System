@@ -9,7 +9,6 @@ export default function Register() {
   const handleRegister = async () => {
     if (!form.email.includes("@")) return alert("Invalid email");
     if (form.password.length < 6) return alert("Password too short");
-
     const res = await request("/auth/register", "POST", form);
 
     alert(res.msg);

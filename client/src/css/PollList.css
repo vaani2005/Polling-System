@@ -49,6 +49,10 @@ button {
   margin: 0 0 12px 0;
   color: #111827;
 }
+.poll-header {
+  display: flex;
+  justify-content: space-between;
+}
 
 .poll-options {
   display: flex;
@@ -81,6 +85,7 @@ button {
   font-size: 12px;
   padding: 6px 10px;
   border-radius: 6px;
+  margin-right: 10px;
 }
 
 .vote-btn:hover {
@@ -90,4 +95,44 @@ button {
 .vote-btn:disabled {
   background: #9ca3af;
   cursor: not-allowed;
+}
+
+.edit-btn {
+  background: #6898e4;
+  color: white;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.edit-btn:hover {
+  background: #c3cce0;
+}
+
+.edit-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.delete-btn {
+  background: #ee3131;
+  color: white;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-right: 20px;
+}
+
+.delete-btn:hover {
+  background: #ef4747d2;
+}
+
+.delete-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+.selected {
+  border: 2px solid #3b82f6;
+  background: #e0edff;
 }
