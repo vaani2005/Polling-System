@@ -10,7 +10,7 @@ export default function CreatePoll() {
   const [options, setOptions] = useState(["", ""]);
 
   useEffect(() => {
-    if (!getToken()) navigate("/login");
+    if (!getToken()) window.location.href = "/login";
 
     if (id) fetchPoll();
   }, [id, navigate]);
@@ -52,7 +52,7 @@ export default function CreatePoll() {
       window.location.reload();
     } catch (err) {
       console.log(err.msg || "Error saving poll");
-      navigate("/login");
+      window.location.href = "/login";
     }
   };
 

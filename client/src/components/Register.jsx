@@ -13,7 +13,7 @@ export default function Register() {
     const res = await request("/auth/register", "POST", form);
 
     alert(res.msg);
-    navigate("/login");
+    window.location.href = "/login";
   };
 
   return (

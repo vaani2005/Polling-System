@@ -29,7 +29,7 @@ export default function PollList() {
     }
   };
   const handleDelete = async (pollId) => {
-    if (!token) return navigate("/login");
+    if (!token) return (window.location.href = "/login");
 
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this poll?",
@@ -46,8 +46,7 @@ export default function PollList() {
     }
   };
   const vote = async (pollId, optionIndex) => {
-    if (!token) return navigate("/login");
-
+    if (!token) return (window.location.href = "/login");
     try {
       await request("/poll/vote", "POST", {
         pollId,
@@ -67,7 +66,7 @@ export default function PollList() {
 
   const logout = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    window.location.href = "/login";
   };
 
   useEffect(() => {
