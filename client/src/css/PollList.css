@@ -1,151 +1,142 @@
-/* RESET */
-html,
+/* RESET (fix white margin issue) */
 body {
   margin: 0;
   padding: 0;
 }
 
-/* Wrapper */
+/* 🌄 Background */
 .poll-container {
-  position: relative;
   min-height: 100vh;
-  padding: 50px 20px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  overflow-x: hidden;
-}
-
-/* 🌄 Fixed aesthetic background */
-.poll-container::before {
-  content: "";
-  position: fixed;
-  inset: 0;
+  padding: 40px 20px;
 
   background-image: url("/bg.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
-  filter: brightness(0.7) blur(2px);
-  z-index: -2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  position: relative;
 }
 
-/* 🌫 soft gradient overlay */
-.poll-container::after {
+/* 🔥 Overlay for better readability */
+.poll-container::before {
   content: "";
   position: fixed;
   inset: 0;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.6)
-  );
-
-  z-index: -1;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 0;
 }
 
-/* Heading */
+.poll-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 🧾 Heading */
 .poll-container h2 {
   text-align: center;
-  margin-bottom: 35px;
-  font-size: 28px;
+  margin-bottom: 30px;
+  font-size: 24px;
   font-weight: 600;
-  color: #ffffff;
-  letter-spacing: 0.5px;
+  color: white;
 }
 
-/* Top bar */
+/* 🔝 Top bar */
 .top-bar {
-  max-width: 720px;
-  margin: 0 auto 30px;
+  max-width: 700px;
+  margin: 0 auto 25px;
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
-/* Buttons */
+/* 🎯 Buttons */
 button {
-  padding: 10px 16px;
+  padding: 10px 14px;
   border-radius: 10px;
   border: none;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 /* Create */
 .create-btn {
-  background: rgba(255, 255, 255, 0.2);
+  background: #111827;
   color: white;
-  backdrop-filter: blur(6px);
 }
 .create-btn:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: #1f2937;
 }
 
 /* Logout */
 .logout-btn {
-  background: rgba(239, 68, 68, 0.7);
+  background: #ef4444;
   color: white;
 }
 .logout-btn:hover {
-  background: rgba(239, 68, 68, 1);
+  background: #dc2626;
 }
 
-/* 🌟 Poll Card (glassmorphism) */
+/* 🪟 Poll Card (Glass UI) */
 .poll-card {
-  max-width: 720px;
-  margin: 0 auto 20px;
-  padding: 22px;
-  border-radius: 18px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 18px;
+  padding: 20px;
+  border-radius: 16px;
 
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
 
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  transition: all 0.25s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease;
 }
 
 .poll-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
-/* Header */
+/* 📌 Header */
 .poll-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+  gap: 10px;
 }
 
 .poll-header h3 {
   margin: 0;
-  font-size: 17px;
-  color: #ffffff;
+  font-size: 16px;
+  color: #111827;
 }
 
-/* Edit/Delete */
+/* ✏️ Edit/Delete */
 .edit-btn {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  margin-right: 8px;
+  background: #e5e7eb;
+  color: #111827;
+  margin-right: 6px;
 }
 .edit-btn:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: #d1d5db;
 }
 
 .delete-btn {
-  background: rgba(239, 68, 68, 0.8);
-  color: white;
+  background: #fee2e2;
+  color: #b91c1c;
 }
 .delete-btn:hover {
-  background: rgba(239, 68, 68, 1);
+  background: #fecaca;
 }
 
-/* Options */
+/* 📊 Options */
 .poll-options {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 /* Option row */
@@ -154,51 +145,116 @@ button {
   justify-content: space-between;
   align-items: center;
 
-  padding: 12px 14px;
-  border-radius: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
 
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(249, 250, 251, 0.9);
   transition: all 0.2s ease;
 }
 
 .option-row:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: #f3f4f6;
 }
 
 /* Text */
 .option-text {
   font-size: 14px;
-  color: #f3f4f6;
+  color: #374151;
 }
 
 .votes {
   margin-left: 6px;
   font-size: 12px;
-  color: #d1d5db;
+  color: #6b7280;
 }
 
 /* Vote button */
 .vote-btn {
-  background: rgba(255, 255, 255, 0.2);
+  background: #111827;
   color: white;
   font-size: 12px;
   padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .vote-btn:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: #1f2937;
 }
 
 /* Selected */
 .vote-btn.selected {
-  background: rgba(156, 163, 175, 0.7);
+  background: #9ca3af;
 }
 
-/* Login button */
+/* Login required button */
 .vote-btn.login {
-  background: rgba(255, 255, 255, 0.15);
+  background: #e5e7eb;
+  color: #111827;
 }
 .vote-btn.login:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: #d1d5db;
+}
+
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .poll-container {
+    padding: 20px 10px;
+    background-attachment: scroll;
+  }
+
+  .top-bar {
+    flex-direction: column;
+  }
+
+  .top-bar button {
+    width: 100%;
+  }
+
+  .poll-card {
+    padding: 16px;
+  }
+
+  .poll-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .poll-header div:last-child {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+
+  .poll-header button {
+    flex: 1;
+  }
+
+  .option-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .vote-btn {
+    width: 100%;
+  }
+}
+
+/* 📱 SMALL PHONES */
+@media (max-width: 480px) {
+  .poll-container h2 {
+    font-size: 20px;
+  }
+
+  .poll-card {
+    padding: 14px;
+  }
+
+  .option-text {
+    font-size: 13px;
+  }
+
+  .vote-btn {
+    font-size: 11px;
+  }
 }
