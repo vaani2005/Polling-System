@@ -30,9 +30,11 @@
 // backend live : https://polling-system-backend-v4n5.onrender.com
 // local host : http://localhost:5000
 
+export const getToken = () => localStorage.getItem("token");
+
 export const request = async (url, method = "GET", body) => {
   try {
-    const token = localStorage.getItem("token");
+    const token = getToken();
 
     const res = await fetch("https://0nxl8t2r-5000.inc1.devtunnels.ms" + url, {
       method,
@@ -54,7 +56,7 @@ export const request = async (url, method = "GET", body) => {
           : "Session expired. Please login again",
       );
 
-      window.location.href = "/login"; // ✅ fixed
+      window.location.href = "/login";
       return;
     }
 
