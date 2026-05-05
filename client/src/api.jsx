@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 export const getToken = () => localStorage.getItem("token");
 
-const BASE_URL = "https://polling-system-backend-v4n5.onrender.com";
+const BASE_URL = " http://localhost:5000";
 
 export const request = async (url, method = "GET", body) => {
   try {

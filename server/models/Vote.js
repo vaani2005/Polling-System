@@ -17,3 +17,5 @@ const voteSchema = new mongoose.Schema({
 });
 
 voteSchema.index({ user: 1, poll: 1 }, { unique: true });
+
+module.exports = mongoose.model("Vote", voteSchema);
