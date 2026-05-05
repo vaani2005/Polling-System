@@ -11,8 +11,16 @@ export default function PollList() {
   const navigate = useNavigate();
   const token = getToken();
 
-  const userId = token ? JSON.parse(atob(token.split(".")[1])).id : null;
+  let userId = null;
 
+  try {
+    if (token) {
+      const decoded = JSON.parse(atob(token.split(".")[1]));
+      userId = decoded.id;
+    }
+  } catch {
+    userId = null;
+  }
   const fetchPolls = async () => {
     try {
       const data = await request("/poll");
